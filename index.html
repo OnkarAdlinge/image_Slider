@@ -1,0 +1,65 @@
+<html>
+    <head> <title>Image Slider with interval </title>
+    <style>
+        body
+        {
+            background-color: bisque;
+        }
+       input
+       {
+        width: 60px;
+        height: 30px;
+        margin: 5px 40px 5px 40px;
+       }
+       p
+       {
+            margin: 0;
+       }
+    </style>
+    </head>
+    <body>
+        <center>
+        <p> Click on <strong> Start </strong> button to start the Image Transmission.</p>
+        <img src="" id="img" alt="Random Images" style=" margin: 20px; height: 500px; width: 500px;">
+        </br>
+        <input type="button" value="Start" onclick="start()">
+        <input type="button" value="Fast" onclick="fast()">
+        <input type="button" value="Slow" onclick="slow()">
+        <input type="button" value="Stop" onclick="end1()">
+    </center>
+    </body>
+    <script>
+            var img=document.getElementById("img");
+            var arr=["./Images/IMG_1.jpeg","./Images/IMG_2.jpeg","./Images/IMG_3.jpeg","./Images/IMG_4.jpeg","./Images/IMG_5.jpeg","./Images/IMG_6.jpeg"];
+            var i=0;
+            var s1=null;
+            function set()
+            {
+                img.src=arr[i];
+                i++;
+                if(i==arr.length)
+                {
+                    i=0;
+                }
+            }
+            function start()
+            {   
+                 s1=setInterval("set()",1500);  
+            }
+            
+            function fast()
+            {
+                clearInterval(s1);
+                s1=setInterval("set()",700);
+            }
+            function slow()
+            {
+                clearInterval(s1);
+                s1=setInterval("set()",2000);
+            }
+            function end1()
+            {
+                clearInterval(s1);
+            }
+</script>
+</html>
